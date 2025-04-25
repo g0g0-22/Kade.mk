@@ -1,50 +1,38 @@
-# Welcome to your Expo app 👋
+# kade.mk - MVP
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Kade.mk is a mobile application that helps users discover curated locations in Skopje for coffee, drinks, and food based on their desired vibe and preferences. This is the MVP version of the app, focused on clean UI, fast filtering, and dynamic loading from a Firebase Firestore database.
 
-## Get started
+## Features
 
-1. Install dependencies
+- 🔥 Fetches real-time data from Firestore (`/locations` collection)
+- 🏷️ Dynamic tag filtering (with multi-tag support and modals)
+- 🧭 Locations include address, working hours, tags, photos, Instagram handles, and coordinates
+- 🧩 Modular code (separated concerns: `Card`, `Tag`, `usePlaces`)
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+- React Native with Expo
+- Firebase Firestore (NoSQL database)
+- TypeScript
+- Lucide Icons for visuals
 
-   ```bash
-    npx expo start
-   ```
+## Database Schema (Firestore)
 
-In the output, you'll find options to open the app in a
+Each document:
+{
+"name": "Skara Bar",
+"address": "Centar, Skopje",
+"tags": ["grill", "cozy"],
+"photos": ["url1", "url2"],
+"location": {
+"\_lat": 41.9981,
+"\_long": 21.4254
+},
+"hours": ["Mon–Sun: 10AM–12AM"],
+"phone": "070123456",
+"instagram": "@skarabar"
+}
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Note
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This MVP was developed to validate the core concept of location-based discovery in Skopje through a fast, filterable, and minimal interface. The focus was on clean data loading, modular architecture, and intuitive UX to demonstrate technical execution and product thinking. Future iterations will explore personalized recommendations, live maps, and user-driven content.
