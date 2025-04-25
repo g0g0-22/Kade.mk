@@ -4,7 +4,7 @@ Kade.mk is a mobile application that helps users discover curated locations in S
 
 ## Features
 
-- 🔥 Fetches real-time data from Firestore (`/locations` collection)
+- 🔥 Fetches real-time data from Firestore
 - 🏷️ Dynamic tag filtering (with multi-tag support and modals)
 - 🧭 Locations include address, working hours, tags, photos, Instagram handles, and coordinates
 - 🧩 Modular code (separated concerns: `Card`, `Tag`, `usePlaces`)
@@ -16,22 +16,9 @@ Kade.mk is a mobile application that helps users discover curated locations in S
 - TypeScript
 - Lucide Icons for visuals
 
-## Database Schema (Firestore)
+## ☁️ Data Storage
 
-Each document:
-{
-"name": "Skara Bar",
-"address": "Centar, Skopje",
-"tags": ["grill", "cozy"],
-"photos": ["url1", "url2"],
-"location": {
-"\_lat": 41.9981,
-"\_long": 21.4254
-},
-"hours": ["Mon–Sun: 10AM–12AM"],
-"phone": "070123456",
-"instagram": "@skarabar"
-}
+All location data is fetched dynamically from a Firestore database (/locations collection). Each entry represents a curated venue with associated metadata such as name, address, tags, coordinates, and contact info.
 
 ## Note
 
