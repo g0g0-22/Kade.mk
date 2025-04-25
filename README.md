@@ -23,3 +23,10 @@ All location data is fetched dynamically from a Firestore database (/locations c
 ## Note
 
 This MVP was developed to validate the core concept of location-based discovery in Skopje through a fast, filterable, and minimal interface. The focus was on clean data loading, modular architecture, and intuitive UX to demonstrate technical execution and product thinking. Future iterations will explore personalized recommendations, live maps, and user-driven content.
+
+<div>
+   <img src="/assets/readme-assets/ui1.png">
+   <img src="/assets/readme-assets/ui2.png">
+   <img src="/assets/readme-assets/ui3.png">
+   <img src="/assets/readme-assets/ui4.png">
+</div>
