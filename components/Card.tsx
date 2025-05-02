@@ -6,7 +6,6 @@ import { useFonts } from 'expo-font'
 import { Feather } from '@expo/vector-icons';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
-import FastImage from 'react-native-fast-image'
 import Tag from './Tag';
 import { TAGS } from '../constants/Tags'
 import { Double } from 'react-native/Libraries/Types/CodegenTypes';
@@ -49,10 +48,9 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
         data={photos}
         showsHorizontalScrollIndicator = {false}
         renderItem={({ item }) => (
-          <FastImage 
+          <Image 
             source={{uri: item}}  
             style={styles.image}
-            resizeMode={FastImage.resizeMode.cover}
           />
         )}
         keyExtractor={(_, index) => index.toString()}

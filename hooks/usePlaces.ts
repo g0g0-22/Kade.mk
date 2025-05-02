@@ -1,5 +1,8 @@
 import { collection, getDocs, GeoPoint } from "firebase/firestore";
 import { db } from "@/FirebaseConfig";
+import localPlaces from "@/constants/Places" 
+
+const USELOCALDATA = true;
 
 export type Place = {
   id: string;
@@ -14,6 +17,7 @@ export type Place = {
 };
 
 export async function fetchPlaces(): Promise<Place[]> {
+  if(USELOCALDATA) return localPlaces;
   const querySnapshot = await getDocs(collection(db, "locations"));
 
   const places: Place[] = querySnapshot.docs.map(doc => {
