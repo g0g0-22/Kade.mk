@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Image, View, Text, StyleSheet, FlatList, ScrollView, Modal, TouchableOpacity, Alert } from 'react-native';
 import Card from '../../components/Card';
 import {useState} from 'react'
-import {CircleX, ListFilter} from 'lucide-react-native'
+import Feather from '@expo/vector-icons/Feather';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { TAGS } from '@/constants/Tags';
 import { tags } from 'react-native-svg/lib/typescript/xmlTags';
@@ -86,7 +86,7 @@ const index = () => {
           style={{width: 140, height: 50}}
           />
           <TouchableOpacity onPress={()=>{setModalVisible(true)}}
-            ><ListFilter
+            ><Feather name='filter'
             color="#077A7D"
             size={32}
             /></TouchableOpacity>
@@ -109,7 +109,7 @@ const index = () => {
             <Text style={{ fontSize: 24, fontWeight: '800' }}>Filters</Text>
             <TouchableOpacity onPress={() => {
               setModalVisible(false)}}>
-              <CircleX size={32} color='#525252' />
+              <Feather name='x-circle' size={32} color='#525252' />
             </TouchableOpacity>
           </View>
           <View>

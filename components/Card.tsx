@@ -3,8 +3,10 @@ import { useState } from "react";
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Linking } from 'react-native';
 import { Platform, UIManager, LayoutAnimation, Alert } from 'react-native'; 
 import { useFonts } from 'expo-font'
-import { CircleChevronDown, CircleChevronUp, Footprints, Clock, PhoneCall, Instagram, Locate, MapPinCheck, Pin, Zap } from  'lucide-react-native';
+import { Feather } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';
+import FastImage from 'react-native-fast-image'
 import Tag from './Tag';
 import { TAGS } from '../constants/Tags'
 import { Double } from 'react-native/Libraries/Types/CodegenTypes';
@@ -47,9 +49,10 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
         data={photos}
         showsHorizontalScrollIndicator = {false}
         renderItem={({ item }) => (
-          <Image 
+          <FastImage 
             source={{uri: item}}  
             style={styles.image}
+            resizeMode={FastImage.resizeMode.cover}
           />
         )}
         keyExtractor={(_, index) => index.toString()}
@@ -59,7 +62,7 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
         <View style={styles.textContainer}>
           <Text style={styles.title}>{name}</Text>
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-            <Clock size={16} color='#06202B'/>
+            <Feather name='clock' size={16} color='#06202B'/>
             <Text style={{color:'#06202B'}}> {hours[getTodayIndex()]}</Text>
           </View>
           <View style={{
@@ -68,7 +71,7 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
               alignItems: 'center'
             }}>
             <Text style={{color:'#077A7D'}} >About 10 minutes away </Text>
-            <Footprints size={16} color='#077A7D'/>
+            <Ionicons name='footsteps' size={16} color='#077A7D'/>
           </View>
           {extended ? <View>
             <View style={{
@@ -77,7 +80,7 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
               alignItems: 'center'
             }}>
           <Text style={{color:"gray", marginBottom: 0,}}>{address} </Text>
-          <Pin size={16} color="gray"></Pin>
+          <Feather name='map-pin' size={16} color="gray"/>
           </View>
           <View style={
             {flex: 1,
@@ -90,11 +93,11 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
           }>
             {phone &&
             <TouchableOpacity onPress={()=> Linking.openURL(`tel:${phone}`)}>       
-              <PhoneCall size={24} color='#72BAA9'></PhoneCall>
+              <Feather name='phone' size={24} color='#72BAA9'/>
             </TouchableOpacity>
             }
             <TouchableOpacity onPress={()=>Linking.openURL(`${instagram}`)}>
-              <Instagram size={24} color='#7E5CAD'></Instagram>
+              <Feather name='instagram' size={24} color='#7E5CAD'/>
             </TouchableOpacity>
               <TouchableOpacity onPress={()=>{
                 if(latitude && longitude){
@@ -106,7 +109,7 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
                 }
                 
                 })}}}>
-                <MapPinCheck size={24} color='#474E93'></MapPinCheck>
+                <Feather name='map-pin'size={24} color='#474E93'/>
               </TouchableOpacity>
           </View>
           </View> : <></>}
@@ -132,9 +135,9 @@ export default function Card({ name, address, photos, hours, phone, instagram, t
                 setExtended(!extended);
                 LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
                 }}>
-                <CircleChevronDown color='#525252' style={{
+                <Feather name='chevron-down' color='#525252' style={{
                   transform: [{rotate: extended ? '180deg' : '0deg'}]
-                }}></CircleChevronDown>
+                }}/>
             </TouchableOpacity></View>
           </View>
       </View>

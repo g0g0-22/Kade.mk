@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { MapPin, Compass } from 'lucide-react-native'; // optional icons
+import Feather from '@expo/vector-icons/Feather';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 export default function TabLayout() {
   return (
@@ -24,7 +24,7 @@ export default function TabLayout() {
         options={{
           animation: 'shift',
           title: 'Explore',
-          tabBarIcon: ({ color, size }) => <Compass color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Feather name='compass' color={color} size={size} />,
         }}
       />
       <Tabs.Screen
@@ -32,7 +32,7 @@ export default function TabLayout() {
         options={{
           animation: 'shift',
           title: 'Map',
-          tabBarIcon: ({ color, size }) => <MapPin color={color} size={size} />,
+          tabBarIcon: ({ color, size }) => <Feather name='map-pin' color={color} size={size} />,
         }}
       />
     </Tabs>

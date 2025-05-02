@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, StyleSheet} from 'react-native'
-import { CircleX } from 'lucide-react-native'
+import Feather from '@expo/vector-icons/Feather';
 import { TAGS } from '../constants/Tags'
 type TagProps = {
     id: string,
@@ -68,7 +68,7 @@ export default function Tag({id,name, onPress, context} : TagProps){
     
         <Text style={[styles.tagText, {color: textColor}]}>{displayName}</Text>
         {context === 'in-filter' ?
-        <CircleX size={16} color={borderColor} style={{marginLeft: 3}}></CircleX> : <></>
+        <Feather name='x-circle' size={16} color={borderColor} style={{marginLeft: 3}}/> : <></>
     }
     </TouchableOpacity>
     )
